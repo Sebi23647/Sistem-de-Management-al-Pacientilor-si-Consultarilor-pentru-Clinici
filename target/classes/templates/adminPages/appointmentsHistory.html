@@ -1,0 +1,85 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Istoric Programări</title>
+</head>
+<body>
+    <h1>Istoric Programări</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nume Pacient</th>
+                <th>Nume Doctor</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="appointment : ${appointments}">
+                <td th:text="${appointment.id}"></td>
+                <td th:text="${appointment.patientName}"></td>
+                <td th:text="${appointment.doctorName}"></td>
+                <td th:text="${appointment.date}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+ -->
+ 
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Istoric Programări</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/adminPages/appointmentsHistory.css}">
+</head>
+<body>
+    <h1>Istoric Programări</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nume Pacient</th>
+                <th>Nume Doctor</th>
+                <th>Data</th>
+                <th>Tratament description</th>
+                <th>Tratament cost</th>
+                <th>Tratament period</th>
+                <th>Tratament diagnosis</th>
+               
+               
+                
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="appointment : ${appointments}">
+                <td th:text="${appointment.id}"></td>
+                <td th:text="${appointment.patient.nume}"></td>
+                <td th:text="${appointment.doctor.nume}"></td>
+                <td th:text="${appointment.appointmentDate}"></td>
+                <!-- Asta merge -->
+                <td th:text="${appointment.tratament != null ? appointment.tratament.description : 'N/A'}"></td>
+                <td th:text="${appointment.tratament != null ? appointment.tratament.cost : 'N/A'}"></td>
+                <td th:text="${appointment.tratament != null ? appointment.tratament.period : 'N/A'}"></td>
+                <td th:text="${appointment.tratament != null ? appointment.tratament.diagnosis : 'N/A'}"></td>
+               
+                
+              <!-- ai grija aici  -->
+               <!--  <td th:if="${appointment.tratament}" th:text ="${appointment.tratament.description}"></td>
+                <td th:if="${appointment.tratament}" th:text="${appointment.tratament.cost}"></td>
+                <td th:if="${appointment.tratament}" th:text="${appointment.tratament.period}"></td>
+                <td th:if="${appointment.tratament}" th:text="${appointment.tratament.diagnosis}"></td> -->
+                    <!-- <span th:if="${appointment.tratament == null}">
+                        Fără Tratament
+                    </span>  -->
+                <!-- de verificat tratament -->
+                <td th:text="${appointment.status}"></td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <a href="/home">Înapoi la pagina principală</a>
+</body>
+</html>
+ 

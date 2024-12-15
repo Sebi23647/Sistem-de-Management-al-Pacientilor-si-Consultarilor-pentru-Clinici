@@ -29,7 +29,7 @@ public class LoginController {
     @Autowired
     private DoctorRepository doctorRepository;  
 
-    @GetMapping("/login")
+    @GetMapping({"/", "/login"})
     public String showLoginForm(Model model) {
         model.addAttribute("user", new LoginDTO()); 
         return "authentication/login"; 

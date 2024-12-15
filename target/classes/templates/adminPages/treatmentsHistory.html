@@ -1,0 +1,64 @@
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Istoric Tratamente</title>
+</head>
+<body>
+    <h1>Istoric Tratamente</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nume Pacient</th>
+                <th>Tratament</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="treatment : ${treatments}">
+                <td th:text="${treatment.id}"></td>
+                <td th:text="${treatment.patientName}"></td>
+                <td th:text="${treatment.description}"></td>
+                <td th:text="${treatment.date}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Istoric Tratamente</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/adminPages/treatmentsHistory.css}">
+</head>
+<body>
+    <h1>Istoric Tratamente</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descriere</th>
+                <th>Cost</th>
+                <th>Perioadă</th>
+                <th>Diagnostic</th>
+                <!-- <th>Nume Pacient</th>
+                <th>Data</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="treatment : ${treatments}">
+                <td th:text="${treatment.id}"></td>
+                <td th:text="${treatment.description}"></td>
+                <td th:text="${treatment.cost}"></td>
+                <td th:text="${treatment.period}"></td>
+                <td th:text="${treatment.diagnosis}"></td>
+<!--                 <td th:text="${treatment.patientName != null ? treatment.patientName : 'N/A'}"></td>-->
+<!--                 <td th:text="${treatment.date != null ? treatment.date : 'N/A'}"></td>-->   
+	        </tr>
+        </tbody>
+    </table>
+    <a href="/home">Înapoi la pagina principală</a>
+</body>
+</html>

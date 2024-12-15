@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Toate Tratamentele</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/patientPages/viewTreatments.css}">
+
+</head>
+<body>
+    <h1>Lista Tratamente</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Descriere</th>
+                <th>Cost</th>
+                <th>Perioadă</th>
+                <th>Diagnosticul</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr th:each="treatment : ${treatments}">
+
+                <td th:text="${treatment.description}"></td>
+                <td th:text="${treatment.cost}"></td>
+                <td th:text="${treatment.period}"></td>
+                <td th:text="${treatment.diagnosis}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/home">Înapoi la pagina principală</a>
+</body>
+</html>

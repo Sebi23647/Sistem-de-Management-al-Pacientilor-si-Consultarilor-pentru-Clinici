@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editează Programare</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/doctorPages/editAppointment.css}">
+</head>
+<body>
+    <h1>Editează Programare</h1>
+    <form th:action="@{/doctorPages/editAppointment}" method="post">
+        <input type="hidden" name="appointmentId" th:value="${appointment.id}" />
+        
+        <label for="patient">Pacient:</label>
+        <select name="patientId">
+            <option th:each="patient : ${patients}" th:value="${patient.id}" th:text="${patient.nume}" 
+                    th:selected="${patient.id == appointment.patient.id}">
+            </option>
+        </select>
+        
+        <label for="doctor">Doctor:</label>
+        <select name="doctorId">
+            <option th:each="doctor : ${doctors}" th:value="${doctor.id}" th:text="${doctor.nume}" 
+                    th:selected="${doctor.id == appointment.doctor.id}">
+            </option>
+        </select>
+
+        <label for="appointmentDate">Data Programării:</label>
+        <input type="date" name="appointmentDate" th:value="${appointment.appointmentDate}" />
+
+        <label for="status">Status:</label>
+        <input type="text" name="status" th:value="${appointment.status}" />
+
+        <button type="submit">Salvează</button>
+    </form>
+</body>
+</html>

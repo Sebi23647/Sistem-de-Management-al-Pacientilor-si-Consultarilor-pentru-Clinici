@@ -1,35 +1,3 @@
-//package ro.digitalnation.entities.controllers;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//
-//import ro.digitalnation.entities.repositories.DoctorRepository;
-//
-//@Controller
-//public class AdminController {
-//	@Autowired
-//    private DoctorRepository doctorRepository;  // Adăugăm repository-ul pentru Doctor
-//
-//    @GetMapping("/addDoctor")
-//    public String addDoctorPage() {
-//        return "adminPages/addDoctor"; // Pagina HTML pentru adăugarea doctorilor
-//    }
-//
-//    @GetMapping("/searchDoctor")
-//    public String searchDoctorPage() {
-//        return "adminPages/searchDoctor"; // Pagina HTML pentru căutarea doctorilor
-//    }
-//
-//    @GetMapping("/appointmentsHistory")
-//    public String appointmentsHistoryPage() {
-//        return "adminPages/appointmentsHistory"; // Pagina HTML pentru istoricul programărilor
-//    }
-//
-//    @GetMapping("/treatmentsHistory")
-//    public String treatmentsHistoryPage() {
-//        return "adminPages/treatmentsHistory"; // Pagina HTML pentru istoricul tratamentelor
-//    }
-//}
 
 package ro.digitalnation.entities.controllers;
 

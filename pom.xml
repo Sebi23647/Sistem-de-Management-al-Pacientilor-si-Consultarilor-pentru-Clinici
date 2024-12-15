@@ -46,7 +46,7 @@
 		<dependency>
    			 <groupId>jakarta.persistence</groupId>
    			 <artifactId>jakarta.persistence-api</artifactId>
-   			<!-- <version>3.1.0</version>  Versiunea depinde de cerințele tale -->
+   			 <version>3.1.0</version> <!-- Versiunea depinde de cerințele tale -->
 		</dependency>
 
 
