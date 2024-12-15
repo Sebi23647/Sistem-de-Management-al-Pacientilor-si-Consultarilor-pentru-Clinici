@@ -267,3 +267,8 @@ Package entities Doctor
   Extrage tratamentele asociate programărilor (dacă există).
   Adaugă lista tratamentelor în model pentru afișare.
   Răspuns: Returnează pagina patientPages/viewTreatments cu lista tratamentelor.
+
+Functionalitatile pe care nu am reusit sa le fac:
+Trimiterea email-urilor cand se apropie ziua appointment-ului
+End point pentru modificarea codului de adaugare a unui admin de catre un admin deja adaugat.
+O entitate asisstenta care sa preia din atributiile doctorului(ex crearea unui programari )
