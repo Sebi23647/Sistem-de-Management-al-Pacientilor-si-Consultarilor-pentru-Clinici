@@ -1,11 +1,31 @@
 package ro.digitalnation.entities;
 
-public class Doctor extends Person {
-    private String specialty;
+import jakarta.persistence.*;
+import ro.digitalnation.apoiments.Appointment;
 
-    public Doctor(String id, String name, String email, String phoneNumber, String specialty) {
-        super(id, name, email, phoneNumber);
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "doctor")
+public class Doctor extends User {
+	@Column(name = "specialty")
+    private String specialty;
+	
+    @Column(name = "salary")
+    private double salary;
+
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Appointment> appointments = new ArrayList<>();
+
+    public Doctor(String id, String name, String email, String phoneNumber, String specialty, double salary) {
+        super();
         this.specialty = specialty;
+        this.salary = salary;
+    }
+
+    public Doctor() {
+        // Default constructor for JPA
     }
 
     public String getSpecialty() {
@@ -16,14 +36,28 @@ public class Doctor extends Person {
         this.specialty = specialty;
     }
 
-    @Override
-    public String getRole() {
-        return "Doctor";
+    public double getSalary() {
+        return salary;
     }
 
-	@Override
-	public String toString() {
-		return "Doctor [specialty=" + specialty + "]";
-	}
-    
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "specialty='" + specialty + '\'' +
+                ", salary=" + salary +
+                ", appointments=" + appointments +
+                '}';
+    }
 }

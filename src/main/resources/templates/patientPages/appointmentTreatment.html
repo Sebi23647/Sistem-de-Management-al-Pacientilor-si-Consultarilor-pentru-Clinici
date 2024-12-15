@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tratamentul Programării</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/patientPages/appointmentTreatment.css}">
+
+</head>
+<body>
+    <h1>Detalii Tratament</h1>
+    <p><strong>Descriere:</strong> <span th:text="${treatment.description}"></span></p>
+    <p><strong>Cost:</strong> <span th:text="${treatment.cost}"></span> RON</p>
+    <p><strong>Perioadă:</strong> <span th:text="${treatment.period}"></span></p>
+    <p><strong>Diagnosticul:</strong> <span th:text="${treatment.diagnosis}"></span></p>
+    <a href="redirect:/home">Înapoi la Programări</a>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vizualizare Programări</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/patientPages/viewAppointments.css}">
+
+</head>
+<body>
+    <h1>Programările mele</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Data Programării</th>
+                <th>Doctor</th>
+                <th>Status</th>
+                <th>Tratament</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="appointment : ${appointments}">
+                <td th:text="${appointment.appointmentDate}"></td>
+                <td th:text="${appointment.doctor.nume}"></td>
+                <td th:text="${appointment.status}"></td>
+                <td>
+                    <span th:if="${appointment.tratament != null}">
+                        <button th:onclick="'window.location.href=\'/patientPages/appointmentTreatment/' + ${appointment.id} + '\''">
+                            Vezi Tratamentul
+                        </button>
+                    </span>
+                    <span th:if="${appointment.tratament == null}">
+                        Fără Tratament
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/home">Înapoi la pagina principală</a>
+</body>
+</html>

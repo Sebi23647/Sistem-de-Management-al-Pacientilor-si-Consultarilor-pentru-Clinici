@@ -1,29 +1,38 @@
 package ro.digitalnation.entities;
 
-public class Patient extends Person {
-    private String medicalHistory;
+import jakarta.persistence.*;
+import ro.digitalnation.apoiments.Appointment;
 
-    public Patient(String id, String name, String email, String phoneNumber, String medicalHistory) {
-        super(id, name, email, phoneNumber);
-        this.medicalHistory = medicalHistory;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "patient")
+public class Patient extends User {
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Appointment> appointments = new ArrayList<>();
+
+    public Patient() {
+        // Default constructor for JPA
     }
 
-    public String getMedicalHistory() {
-        return medicalHistory;
+    public Patient(String id, String name, String email, String phoneNumber,List<Appointment> appointments) {
+        super();
     }
 
-    public void setMedicalHistory(String medicalHistory) {
-        this.medicalHistory = medicalHistory;
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
     }
 
     @Override
-    public String getRole() {
-        return "Patient";
+    public String toString() {
+        return "Patient{" +
+                "appointments=" + appointments +
+                "} " + super.toString();
     }
-
-	@Override
-	public String toString() {
-		return "Patient [medicalHistory=" + medicalHistory + "]";
-	}
-    
 }
